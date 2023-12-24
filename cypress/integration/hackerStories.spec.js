@@ -122,6 +122,14 @@ describe('Hacker Stories', () => {
         .should('be.visible')
     })
 
+    it('types and submits the form directly', () => {
+      cy.get('form input[type="text"]')
+        .should('be.visible')
+        .clear()
+        .type('cypress')
+      cy.get('form').submit()
+    })
+
     context('Last searches', () => {
       it('searches via the last searched term', () => {
         cy.get('#search')
